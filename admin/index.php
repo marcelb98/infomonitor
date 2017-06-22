@@ -31,5 +31,27 @@ require_once 'sec.php';
 		<input type="submit" value="speichern">
 		</form>
 	</fieldset>
+	
+	<fieldset>
+		<legend>Dateien</legend>
+		<form action="uploadFile.php" method="post" enctype="multipart/form-data">
+		Neue Datei hochladen: <input type="file" name="file"> <input type="submit" value="hochladen"><br>
+		<input type="checkbox" name="overwrite" value="y">Datei &uuml;berschreiben, falls schon vorhanden<br>	
+		</form>	
+		<br>
+		<b>Folgende Dateien sind im System hinterlegt:</b><br>
+		<ul>
+			<?php
+			$handle = opendir("../files");
+			while( ($file = readdir($handle)) !== false ){
+				if($file != "." && $file != ".."){
+					echo "<li>".$file. " <a href=\"delFile.php?n=".base64_encode($file)."\" title=\"l&ouml;schen\">[L]</a></li>";	
+				}		
+			}
+			?>
+		</ul>
+		
+		
+	</fieldset>
 </body>
 </html>
