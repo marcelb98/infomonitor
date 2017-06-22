@@ -1,0 +1,70 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+}
+
+/* Kopfzeile */
+#top {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	height: 50px;
+}
+#top .left {
+	float: left;
+	height: 50px;
+	font-size: 30px;
+	font-family: sans;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+#top .right {
+	float: right;
+	height: 50px;
+	font-size: 30px;
+	font-family: sans;
+	padding-right: 10px;
+	padding-top: 10px;
+}
+
+/* Fußzeile */
+#bottom {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	height: 50px;
+}
+#bottom marquee {
+	height: 50px;
+	font-size: 30px;
+	padding-top: 10px;
+	font-family: sans;
+}
+
+/* linke Hälfte */
+#left {
+	background-color: green;
+	position: fixed;
+	top: 50px;
+	bottom: 50px;
+	left: 0px;
+	width: 50%;
+	overflow-x: none;
+	overflow-y: auto;
+}
+
+/* rechte Hälfte */
+#right {
+	background-color: blue;
+	position: fixed;
+	top: 50px;
+	bottom: 50px;
+	right: 0px;
+	width: 50%;
+	overflow-x: none;
+	overflow-y: auto;
+}
