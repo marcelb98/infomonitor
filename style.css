@@ -17,7 +17,7 @@ html, body {
 	float: left;
 	height: 50px;
 	font-size: 30px;
-	font-family: sans;
+	font-family: sans-serif;
 	padding-left: 10px;
 	padding-top: 10px;
 }
@@ -25,7 +25,7 @@ html, body {
 	float: right;
 	height: 50px;
 	font-size: 30px;
-	font-family: sans;
+	font-family: sans-serif;
 	padding-right: 10px;
 	padding-top: 10px;
 }
@@ -42,7 +42,7 @@ html, body {
 	height: 50px;
 	font-size: 30px;
 	padding-top: 10px;
-	font-family: sans;
+	font-family: sans-serif;
 }
 
 /* linke Hälfte */
