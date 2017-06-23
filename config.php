@@ -21,3 +21,8 @@ define("DATEINTERVAL", 30);
 define("TICKERSPEED",100);
 // Wie oft soll der Ticker aktualisiert werden? (Angabe in Sekunden)
 define("TICKERINTERVAL", 30);
+
+// ** linke und rechte Hälfte **
+// Welche Dateiformate werden akzeptiert? (Änderung nicht empfohlen, da Dateitypen sonst event. nicht implementiert.)
+// (MIME-Types werden angegeben)
+$FILETYPES = array( "application/xhtml+xml", "text/html", "image/gif", "image/jpeg", "image/png", "image/tiff", "image/x-icon", "image/bmp", "image/x-windows-bmp", "image/x-ms-bmp" );

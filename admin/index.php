@@ -31,6 +31,67 @@ require_once 'sec.php';
 		<input type="submit" value="speichern">
 		</form>
 	</fieldset>
+	<br>
+	
+	<fieldset>
+		<legend>Bildschirmh&auml;lften</legend>
+		<form action="bildschirmeSpeichern.php" method="post">
+		Welche Inhalte sollen auf dem linken Bildschirm gezeigt werden?
+		<table border="0">
+		<tr>
+			<th>Aktiv?</th><th>Inhalt</th>
+		</tr>
+		<?php
+		@$links = file_get_contents("../data/links.json");
+		$links = json_decode($links);
+		$handle = opendir("../files");
+			while( ($file = readdir($handle)) !== false ){
+				if( in_array(mime_content_type("../files/".$file), $FILETYPES) ){ //Zugelassener Dateityp?
+					echo "<tr>";
+					if( @in_array($file, $links) ){
+						echo "<td><input type=\"checkbox\" checked=\"checked\" name=\"links[]\" value=\"".$file."\"></td><td>$file</td>";
+					}else{
+						echo "<td><input type=\"checkbox\" name=\"links[]\" value=\"".$file."\"></td><td>$file</td>";
+					}
+					echo "</tr>";
+					echo "</tr>";
+				}
+			}
+		?>
+		</table>
+		
+		<br>
+		
+		Welche Inhalte sollen auf dem rechten Bildschirm gezeigt werden?
+		<table border="0">
+		<tr>
+			<th>Aktiv?</th><th>Inhalt</th>
+		</tr>
+		<?php
+		@$rechts = file_get_contents("../data/rechts.json");
+		$rechts = json_decode($rechts);
+		$handle = opendir("../files");
+			while( ($file = readdir($handle)) !== false ){
+				if( in_array(mime_content_type("../files/".$file), $FILETYPES) ){ //Zugelassener Dateityp?
+					echo "<tr>";
+					if( @in_array($file, $rechts) ){
+						echo "<td><input type=\"checkbox\" checked=\"checked\" name=\"rechts[]\" value=\"".$file."\"></td><td>$file</td>";
+					}else{
+						echo "<td><input type=\"checkbox\" name=\"rechts[]\" value=\"".$file."\"></td><td>$file</td>";
+					}
+					echo "</tr>";
+					echo "</tr>";
+				}
+			}
+		?>
+		</table>
+		
+		<br>
+		<input type="submit" value="speichern">
+		</form>
+	</fieldset>
+	
+	<br>
 	
 	<fieldset>
 		<legend>Dateien</legend>
@@ -45,7 +106,7 @@ require_once 'sec.php';
 			$handle = opendir("../files");
 			while( ($file = readdir($handle)) !== false ){
 				if($file != "." && $file != ".."){
-					echo "<li>".$file. " <a href=\"delFile.php?n=".base64_encode($file)."\" title=\"l&ouml;schen\">[L]</a></li>";	
+					echo "<li>".$file. " (". mime_content_type("../files/".$file) . ") <a href=\"delFile.php?n=".base64_encode($file)."\" title=\"l&ouml;schen\">[L]</a></li>";	
 				}		
 			}
 			?>
