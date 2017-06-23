@@ -7,10 +7,11 @@ require_once 'config.php';
 	<title><?php echo TITLE; ?></title>
 	<link rel="stylesheet" type="text/css" href="style.css" />
 	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="md5.js"></script>
 	<script type="text/javascript" src="index.js"></script>
 </head>
 <?php
-echo "<body onload=\"init(".DATEINTERVAL.",".TICKERINTERVAL.",".SLIDETIME.")\">";
+echo "<body onload=\"init(".DATEINTERVAL.",".TICKERINTERVAL.",".SLIDETIME.",".RELOADCONTENT.")\">";
 ?>
 	<div id="top">
 		<div class="left">
@@ -23,6 +24,7 @@ echo "<body onload=\"init(".DATEINTERVAL.",".TICKERINTERVAL.",".SLIDETIME.")\">"
 	</div>
 	<div id="left">
 		<?php
+		$htmlLinks = "";
 		@$links = file_get_contents("./data/links.json");
 		$links = json_decode($links);
 		$i = 1;
@@ -30,25 +32,28 @@ echo "<body onload=\"init(".DATEINTERVAL.",".TICKERINTERVAL.",".SLIDETIME.")\">"
 			while( ($file = readdir($handle)) !== false ){
 				$mime = mime_content_type("./files/".$file);
 				if( @in_array($file, $links) ){ //soll gezeigt werden?
-					echo '<div class="left" id="l'.$i.'">';
+					$htmlLinks .= '<div class="left" id="l'.$i.'">';
 					if(	0 === strpos($mime, 'image') ) {
 							//Es wird ein Bild angezeigt
-							echo '<img src="./files/'.$file.'" border="0" alt="'.$file.'">';
+							$htmlLinks .= '<img src="./files/'.$file.'" border="0" alt="'.$file.'">';
 					}elseif($mime == 'text/html' || $mime == 'application/xhtml+xml' ){
 							//HTML-Datei einbinden
-							echo '<iframe border="0" frameborder="0" scrolling="yes" id="frameL'.$i.'" onload="scrollFrame(\'frameL'.$i.'\')" src="./files/'.$file.'">Keine iFrame-Unterst&uuml;tzung...</iframe>';
+							$htmlLinks .= '<iframe border="0" frameborder="0" scrolling="yes" id="frameL'.$i.'" onload="scrollFrame(\'frameL'.$i.'\')" src="./files/'.$file.'">Keine iFrame-Unterst&uuml;tzung...</iframe>';
 					}else{
 							//anderer Dateityp
-							echo "Unbekannter Dateityp von $file: $mime";
+							$htmlLinks .= "Unbekannter Dateityp von $file: $mime";
 					}
-					echo '</div>';
+					$htmlLinks .= '</div>';
 					$i++;
 				}
 			}
+		echo $htmlLinks;
+		$md5Links = md5($htmlLinks);
 		?>
 	</div>
 	<div id="right">
 		<?php
+		$htmlRechts = "";
 		@$rechts = file_get_contents("./data/rechts.json");
 		$rechts = json_decode($rechts);
 		$i = 1;
@@ -56,21 +61,23 @@ echo "<body onload=\"init(".DATEINTERVAL.",".TICKERINTERVAL.",".SLIDETIME.")\">"
 			while( ($file = readdir($handle)) !== false ){
 				$mime = mime_content_type("./files/".$file);
 				if( @in_array($file, $rechts) ){ //soll gezeigt werden?
-					echo '<div class="right" id="r'.$i.'">';
+					$htmlRechts .= '<div class="right" id="r'.$i.'">';
 					if(	0 === strpos($mime, 'image') ) {
 							//Es wird ein Bild angezeigt
-							echo '<img src="./files/'.$file.'" border="0" alt="'.$file.'">';
+							$htmlRechts .= '<img src="./files/'.$file.'" border="0" alt="'.$file.'">';
 					}elseif($mime == 'text/html' || $mime == 'application/xhtml+xml' ){
 							//HTML-Datei einbinden
-							echo '<iframe border="0" frameborder="0" scrolling="yes" id="frameR'.$i.'" onload="scrollFrame(\'frameR'.$i.'\')" src="./files/'.$file.'">Keine iFrame-Unterst&uuml;tzung...</iframe>';
+							$htmlRechts .= '<iframe border="0" frameborder="0" scrolling="yes" id="frameR'.$i.'" onload="scrollFrame(\'frameR'.$i.'\')" src="./files/'.$file.'">Keine iFrame-Unterst&uuml;tzung...</iframe>';
 					}else{
 							//anderer Dateityp
-							echo "Unbekannter Dateityp von $file: $mime";
+							$htmlRechts .= "Unbekannter Dateityp von $file: $mime";
 					}
-					echo '</div>';
+					$htmlRechts .= '</div>';
 					$i++;
 				}
 			}
+		echo $htmlRechts;
+		$md5Rechts = md5($htmlRechts);
 		?>
 	</div>
 	<div id="bottom">
@@ -78,5 +85,9 @@ echo "<body onload=\"init(".DATEINTERVAL.",".TICKERINTERVAL.",".SLIDETIME.")\">"
 		echo '<marquee id="ticker" scrollamount="'.TICKERSPEED.'" scrolldelay=1000>Lade Inhalt...</marquee>';
 		?>
 	</div>
+	<?php
+	echo '<img src="pixel.png" width="1px" alt="" border="0" onload="setmd5(\'links\',\''.$md5Links.'\')">';
+	echo '<img src="pixel.png" width="1px" alt="" border="0" onload="setmd5(\'rechts\',\''.$md5Rechts.'\')">';
+	?>
 </body>
 </html>

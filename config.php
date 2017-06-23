@@ -28,3 +28,5 @@ define("TICKERINTERVAL", 30);
 $FILETYPES = array( "application/xhtml+xml", "text/html", "image/gif", "image/jpeg", "image/png", "image/tiff", "image/x-icon", "image/bmp", "image/x-windows-bmp", "image/x-ms-bmp" );
 // Alle wie viele Sekunden wird zwischen Folien auf linker und rechter Seite umgeschalten?
 define("SLIDETIME", 10);
+// Alle wie viele Sekunden soll Inhalt von links u. rechts neu geladen werden?
+define("RELOADCONTENT", 15);
