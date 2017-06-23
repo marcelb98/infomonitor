@@ -26,3 +26,5 @@ define("TICKERINTERVAL", 30);
 // Welche Dateiformate werden akzeptiert? (Änderung nicht empfohlen, da Dateitypen sonst event. nicht implementiert.)
 // (MIME-Types werden angegeben)
 $FILETYPES = array( "application/xhtml+xml", "text/html", "image/gif", "image/jpeg", "image/png", "image/tiff", "image/x-icon", "image/bmp", "image/x-windows-bmp", "image/x-ms-bmp" );
+// Alle wie viele Sekunden wird zwischen Folien auf linker und rechter Seite umgeschalten?
+define("SLIDETIME", 10);

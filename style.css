@@ -47,7 +47,6 @@ html, body {
 
 /* linke Hälfte */
 #left {
-	background-color: green;
 	position: fixed;
 	top: 50px;
 	bottom: 50px;
@@ -56,10 +55,27 @@ html, body {
 	overflow-x: none;
 	overflow-y: auto;
 }
+#left .left {
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+#left .left img {
+	padding: 0;
+	margin: 0;
+	max-width: 50vw;
+	max-height: 99%;
+}
+#left .left iframe {
+	padding: 0;
+	margin: 0;
+	width: 50vw;
+	height: 99%;
+	overflow-x: hidden;
+}
 
 /* rechte Hälfte */
 #right {
-	background-color: blue;
 	position: fixed;
 	top: 50px;
 	bottom: 50px;
@@ -67,4 +83,22 @@ html, body {
 	width: 50%;
 	overflow-x: none;
 	overflow-y: auto;
+}
+#right .right {
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+#right .right img {
+	padding: 0;
+	margin: 0;
+	max-width: 50vw;
+	max-height: 99%;
+}
+#right .right iframe {
+	padding: 0;
+	margin: 0;
+	width: 50vw;
+	height: 99%;
+	overflow-x: hidden;
 }
