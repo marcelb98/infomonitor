@@ -30,3 +30,8 @@ $FILETYPES = array( "application/xhtml+xml", "text/html", "image/gif", "image/jp
 define("SLIDETIME", 10);
 // Alle wie viele Sekunden soll Inhalt von links u. rechts neu geladen werden?
 define("RELOADCONTENT", 15);
+
+// ** Anpassungen für eingebundene HTML-Dateien **
+// Manche HTML-Dateien müssen angepasst werden, wenn sie im Infomonitor angezeigt werden.
+// Dafür befinden sich Konfigurationsdateien im Ordner 'adaptions'. Mit diesem Schalter wird festgelegt, welche Konfigurationsdatei geladen wird (oder ist leer)
+define('INSERT_HTML_CONFIG','edupageVertretungsplan');

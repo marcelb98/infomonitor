@@ -71,7 +71,7 @@ html, body {
 	margin: 0;
 	width: 50vw;
 	height: 99%;
-	overflow-x: hidden;
+	overflow-x: visible;
 }
 
 /* rechte Hälfte */

@@ -38,7 +38,7 @@ echo "<body onload=\"init(".DATEINTERVAL.",".TICKERINTERVAL.",".SLIDETIME.",".RE
 							$htmlLinks .= '<img src="./files/'.$file.'" border="0" alt="'.$file.'">';
 					}elseif($mime == 'text/html' || $mime == 'application/xhtml+xml' ){
 							//HTML-Datei einbinden
-							$htmlLinks .= '<iframe border="0" frameborder="0" scrolling="yes" id="frameL'.$i.'" onload="scrollFrame(\'frameL'.$i.'\')" src="./files/'.$file.'">Keine iFrame-Unterst&uuml;tzung...</iframe>';
+							$htmlLinks .= '<iframe border="0" frameborder="0" scrolling="yes" id="frameL'.$i.'" onload="scrollFrame(\'frameL'.$i.'\')" src="html.php?file='.$file.'">Keine iFrame-Unterst&uuml;tzung...</iframe>';
 					}else{
 							//anderer Dateityp
 							$htmlLinks .= "Unbekannter Dateityp von $file: $mime";
@@ -67,7 +67,7 @@ echo "<body onload=\"init(".DATEINTERVAL.",".TICKERINTERVAL.",".SLIDETIME.",".RE
 							$htmlRechts .= '<img src="./files/'.$file.'" border="0" alt="'.$file.'">';
 					}elseif($mime == 'text/html' || $mime == 'application/xhtml+xml' ){
 							//HTML-Datei einbinden
-							$htmlRechts .= '<iframe border="0" frameborder="0" scrolling="yes" id="frameR'.$i.'" onload="scrollFrame(\'frameR'.$i.'\')" src="./files/'.$file.'">Keine iFrame-Unterst&uuml;tzung...</iframe>';
+							$htmlRechts .= '<iframe border="0" frameborder="0" scrolling="yes" id="frameR'.$i.'" onload="scrollFrame(\'frameR'.$i.'\')" src="html.php?file='.$file.'">Keine iFrame-Unterst&uuml;tzung...</iframe>';
 					}else{
 							//anderer Dateityp
 							$htmlRechts .= "Unbekannter Dateityp von $file: $mime";
