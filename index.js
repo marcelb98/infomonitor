@@ -111,14 +111,16 @@ function setmd5(seite, md5){
 
 //Prüft, ob es neuen Inhalt gibt
 function chkNewContent(RELOADCONTENT){
+	console.log('Pruefe auf neuen Inhalt');
 	$.ajax({
         url : './ajax/chkNewContent.php',
-        type : 'get',
+        type : 'post',
         data : 'links='+md5Links+'&rechts='+md5Rechts
     }).done(function (data) {
         // Antwort
         if(data == 'y'){
-				window.location.reload();
+			console.log('reload content...');
+			window.location.reload();
 		}
     }).fail(function() {
         // Bei Fehler
