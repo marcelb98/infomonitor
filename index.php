@@ -7,7 +7,6 @@ require_once 'config.php';
 	<title><?php echo TITLE; ?></title>
 	<link rel="stylesheet" type="text/css" href="style.css" />
 	<script type="text/javascript" src="jquery.min.js"></script>
-	<script type="text/javascript" src="md5.js"></script>
 	<script type="text/javascript" src="index.js"></script>
 </head>
 <?php
