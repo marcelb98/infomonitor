@@ -1,9 +1,4 @@
 <?php
-/*
- * This software is licensed under the MIT License.
- * Copyright (c) 2017 Marcel Beyer
-*/
-
 session_start();
 if(@$_SESSION['login'] != true && @$_POST['login'] != 'y'){
 	echo "<!doctype html><html><head><title>Login</title></head><body>";

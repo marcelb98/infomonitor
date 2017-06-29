@@ -1,3 +1,8 @@
+/*
+ * This software is licensed under the MIT License.
+ * Copyright (c) 2017 Marcel Beyer
+*/
+
 // Initialisiert JS
 var anzahlLinks = 0; //wie viele Elemente gibt es links?
 var anzahlRechts = 0; // ...und rechts?
