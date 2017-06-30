@@ -1,3 +1,6 @@
-* jQuery
+This project is using the following 3rd-party software:
 
-* md5.js: https://css-tricks.com/snippets/javascript/javascript-md5/
+* jQuery
+  (c) JS Foundation and other contributors
+  License: MIT License, https://jquery.org/license
+  Web: https://jquery.org
