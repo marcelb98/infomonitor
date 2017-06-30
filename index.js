@@ -37,7 +37,6 @@ function datumLaden(waitTime) {
         data : 'silence=golden'
     }).done(function (data) {
         // Antwort
-        console.log(data);
         $("#datum").html(data);
     }).fail(function() {
         // Bei Fehler
@@ -57,7 +56,6 @@ function tickerLaden(waitTime) {
         data : 'silence=golden'
     }).done(function (data) {
         // Antwort
-        console.log(data);
         $("#ticker").html(data);
     }).fail(function() {
         // Bei Fehler
@@ -116,7 +114,6 @@ function setmd5(seite, md5){
 
 //Prüft, ob es neuen Inhalt gibt
 function chkNewContent(RELOADCONTENT){
-	console.log('Pruefe auf neuen Inhalt');
 	$.ajax({
         url : './ajax/chkNewContent.php',
         type : 'post',
@@ -124,7 +121,6 @@ function chkNewContent(RELOADCONTENT){
     }).done(function (data) {
         // Antwort
         if(data == 'y'){
-			console.log('reload content...');
 			window.location.reload();
 		}
     }).fail(function() {
