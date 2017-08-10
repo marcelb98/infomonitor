@@ -107,3 +107,17 @@ html, body {
 	height: 99%;
 	overflow: hidden;
 }
+
+/* Nachtmodus: Seite komplett schwarz */
+#nacht {
+	display: none;
+	position: fixed;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	padding: 0px;
+	margin: 0px;
+	background-color: #000;
+	color: #fff;
+}

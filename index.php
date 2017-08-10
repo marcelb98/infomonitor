@@ -92,5 +92,8 @@ echo "<body onload=\"init(".DATEINTERVAL.",".TICKERINTERVAL.",".SLIDETIME.",".RE
 	echo '<img src="pixel.png" width="1px" alt="" border="0" onload="setmd5(\'links\',\''.$md5Links.'\')">';
 	echo '<img src="pixel.png" width="1px" alt="" border="0" onload="setmd5(\'rechts\',\''.$md5Rechts.'\')">';
 	?>
+	
+<div id="nacht">Nachtmodus...</div>
+
 </body>
 </html>

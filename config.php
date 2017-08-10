@@ -35,6 +35,12 @@ define("SLIDETIME", 10);
 // Alle wie viele Sekunden soll Inhalt von links u. rechts neu geladen werden?
 define("RELOADCONTENT", 15);
 
+// ** Nachtmodus **
+// Es kann eine Zeit angegeben werden, in der der Nachtmodus aktiviert wird. Ist dieser aktiv, wird der gesamte Bildschirm schwarz geschalten.
+// Um den Nachtmodus zu aktivieren, als Startstunde 0 und als Endstunde 0 eintragen.
+define("NIGHT_START", 0); //Startstunde des Nachtmodus (inkl.)
+define("NIGHT_END", 0); //Endstunde des Nachtmodus (inkl.)
+
 // ** Anpassungen für eingebundene HTML-Dateien **
 // Manche HTML-Dateien müssen angepasst werden, wenn sie im Infomonitor angezeigt werden.
 // Dafür befinden sich Konfigurationsdateien im Ordner 'adaptions'. Mit diesem Schalter wird festgelegt, welche Konfigurationsdatei geladen wird (oder ist leer)

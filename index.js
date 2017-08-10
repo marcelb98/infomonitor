@@ -27,6 +27,9 @@ function init(DATEINTERVAL, TICKERINTERVAL, SLIDETIME, RELOADCONTENT) {
 	if(anzahlLinks > 0){ linksAktuell = anzahlLinks; } //aktuelles Element muss letztes sein, damit bei erstem Aufruf 1. Element gezeigt wird
 	if(anzahlRechts > 0){ rechtsAktuell = anzahlRechts; }
 	bildschirmSchalten(SLIDETIME);
+	
+	//Nachtmodus prüfen (alle 10 Minuten)
+	nachtModus('600');
 }
 
 //Datum neu laden
@@ -44,6 +47,33 @@ function datumLaden(waitTime) {
         console.log("ERROR: datumLaden()");
     });
 	window.setTimeout('datumLaden('+waitTime+')', waitTime*1000);
+	
+	return true;
+}
+
+//Nachtabschaltung prüfen
+function nachtModus(waitTime){
+	$.ajax({
+        url : './ajax/nachtmodus.php',
+        type : 'get',
+        data : 'silence=golden'
+    }).done(function (data) {
+        // Antwort
+        if(data == '1'){
+				//Nachtmodus an 
+				console.log("INFO: nacht=1");
+				document.getElementById('nacht').style.display = 'block';       
+        }else{
+        		//Nachtmodus aus
+        		console.log("INFO: nacht=0 "+data);
+        		document.getElementById('nacht').style.display = 'none';
+        }
+        
+    }).fail(function() {
+        // Bei Fehler
+        console.log("ERROR: nachtModus()");
+    });
+	window.setTimeout('nachtModus('+waitTime+')', waitTime*1000);
 	
 	return true;
 }
